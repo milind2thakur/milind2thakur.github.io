@@ -1,16 +1,29 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
+}
+
+/* Common styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f0f0f0;
+    background-color: #f6f8fa; /* GitHub background color */
+    color: #24292e; /* GitHub text color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 1em 0;
+    padding: 16px 0; /* Adjusted padding for consistency */
     text-align: center;
+    z-index: 1000; /* Ensure header stays above other content */
 }
 
 .profile-image {
@@ -29,37 +42,28 @@ main {
     justify-content: space-between;
     max-width: 1200px;
     margin: 20px auto;
+    padding-top: 100px; /* Adjust padding to accommodate fixed header */
+    /* Your main content styles */
 }
 
 .info-sections {
-    flex-basis: 48%; /* Adjust as needed for spacing */
+    flex-basis: 48%;
 }
 
-.info-card {
+.info-card,
+section {
     padding: 20px;
     margin-bottom: 20px;
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#projects {
-    /* Flex-basis and styling for Projects section */
-}
-
-#experience {
-    /* Flex-basis and styling for Work Experience section */
-}
-
-section {
-    padding: 20px 0;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid #e1e4e8; /* GitHub card border color */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #4CAF50;
+    color: #0366d6; /* GitHub link color for headings */
+    font-size: 24px;
+    margin-bottom: 16px;
 }
 
 ul {
@@ -67,100 +71,51 @@ ul {
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #24292e; /* GitHub footer background color */
+    color: white; /* White text */
     text-align: center;
-    padding: 1em 0;
+    padding: 16px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
-#copyright {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-    font-size: 0.8em;
-}
-
-
 .project {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 16px;
+    background-color: #f6f8fa; /* GitHub project card background color */
+    border: 1px solid #e1e4e8; /* GitHub project card border color */
+    border-radius: 6px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .project h3 {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 20px;
 }
 
 .project p {
-    color: #666;
-    margin-bottom: 10px;
+    color: #586069; /* GitHub secondary text color */
+    margin-bottom: 12px;
 }
 
 .project a {
     text-decoration: none;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-
-.project {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-.project h3 {
-    margin-bottom: 5px;
-}
-
-.project p {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.project a {
-    text-decoration: none;
-    color: #4CAF50;
+    color: #0366d6; /* GitHub link color */
     font-weight: bold;
 }
 
 .project img {
-    max-width: 100%; /* Ensures images fit within their container */
-    border-radius: 8px; /* Rounded corners for images */
+    max-width: 100%;
+    border-radius: 6px;
 }
 
-
-.project {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+/* Styles for sticky header on scroll */
+.header {
+    transition: padding 0.3s, background-color 0.3s;
 }
 
-.project h3 {
-    margin-bottom: 5px;
-}
-
-.project p {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.project a {
-    text-decoration: none;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-.project img {
-    max-width: 100%; /* Ensures images fit within their container */
-    border-radius: 8px; /* Rounded corners for images */
+.small-header {
+    padding: 10px 0;
+    background-color: #333;
 }
