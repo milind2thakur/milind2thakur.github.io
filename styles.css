@@ -1,16 +1,29 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
+}
+
+/* Common styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f0f0f0;
+    background-color: #f6f8fa; /* GitHub background color */
+    color: #24292e; /* GitHub text color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 1em 0;
+    padding: 16px 0; /* Adjusted padding for consistency */
     text-align: center;
+    z-index: 1000; /* Ensure header stays above other content */
 }
 
 .profile-image {
@@ -25,22 +38,32 @@ header {
 }
 
 main {
-    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
     margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 100px; /* Adjust padding to accommodate fixed header */
+    /* Your main content styles */
 }
 
+.info-sections {
+    flex-basis: 48%;
+}
+
+.info-card,
 section {
-    padding: 20px 0;
+    padding: 20px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    border: 1px solid #e1e4e8; /* GitHub card border color */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #4CAF50;
+    color: #0366d6; /* GitHub link color for headings */
+    font-size: 24px;
+    margin-bottom: 16px;
 }
 
 ul {
@@ -48,11 +71,51 @@ ul {
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #24292e; /* GitHub footer background color */
+    color: white; /* White text */
     text-align: center;
-    padding: 1em 0;
+    padding: 16px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.project {
+    padding: 16px;
+    background-color: #f6f8fa; /* GitHub project card background color */
+    border: 1px solid #e1e4e8; /* GitHub project card border color */
+    border-radius: 6px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.project p {
+    color: #586069; /* GitHub secondary text color */
+    margin-bottom: 12px;
+}
+
+.project a {
+    text-decoration: none;
+    color: #0366d6; /* GitHub link color */
+    font-weight: bold;
+}
+
+.project img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+/* Styles for sticky header on scroll */
+.header {
+    transition: padding 0.3s, background-color 0.3s;
+}
+
+.small-header {
+    padding: 10px 0;
+    background-color: #333;
 }
