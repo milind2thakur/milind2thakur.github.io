@@ -112,10 +112,10 @@ footer {
 
 /* Styles for sticky header on scroll */
 .header {
-    transition: padding 0.3s, background-color 0.3s;
+    transition: padding 0.3s; background-color: #000000;
 }
 
 .small-header {
     padding: 10px 0;
-    background-color: #333;
+    ;
 }
