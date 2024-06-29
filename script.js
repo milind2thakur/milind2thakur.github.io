@@ -1,53 +1,69 @@
-// Function to fetch repositories from GitHub API
-async function fetchRepositories(username) {
-    const url = `https://api.github.com/users/${username}/repos`;
-    
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching repositories:', error);
-        return [];
-    }
-}
-
-// Function to display repositories on the webpage
-function displayRepositories(repositories) {
+document.addEventListener('DOMContentLoaded', () => {
     const projectsList = document.getElementById('projects-list');
-    
-    repositories.forEach(repo => {
-        const projectCard = document.createElement('div');
-        projectCard.classList.add('project');
 
-        const title = document.createElement('h3');
-        title.textContent = repo.name;
+    fetch('https://api.github.com/users/milind2thakur/repos')
+        .then(response => response.json())
+        .then(data => {
+            const projects = data.filter(repo => !repo.fork); // Filter out forked repositories
 
-        const description = document.createElement('p');
-        description.textContent = repo.description || 'No description provided';
+            projects.forEach(project => {
+                // Fetch README.md content to extract images
+                fetch(`https://raw.githubusercontent.com/milind2thakur/${project.name}/main/README.md`)
+                    .then(response => response.text())
+                    .then(readmeContent => {
+                        // Extract first image from README.md (assuming markdown format)
+                        const matches = readmeContent.match(/!\[.*?\]\((.*?)\)/); // Regex to find markdown image syntax ![alt-text](image-url)
+                        const imageUrl = matches ? matches[1] : null; // Get the URL of the first image if exists
 
-        const link = document.createElement('a');
-        link.href = repo.html_url;
-        link.textContent = 'View on GitHub';
-        link.target = '_blank';
+                        const projectDiv = document.createElement('div');
+                        projectDiv.classList.add('project');
 
-        projectCard.appendChild(title);
-        projectCard.appendChild(description);
-        projectCard.appendChild(link);
+                        const projectTitle = document.createElement('h3');
+                        projectTitle.textContent = project.name;
 
-        projectsList.appendChild(projectCard);
+                        const projectDescription = document.createElement('p');
+                        projectDescription.textContent = project.description || 'No description provided.';
+
+                        const projectLink = document.createElement('a');
+                        projectLink.href = project.html_url;
+                        projectLink.textContent = 'View Project';
+                        projectLink.target = '_blank'; // Open link in a new tab
+
+                        if (imageUrl) {
+                            const projectImage = document.createElement('img');
+                            projectImage.src = imageUrl;
+                            projectImage.alt = project.name; // Use project name as alt text
+                            projectDiv.appendChild(projectImage);
+                        }
+
+                        projectDiv.appendChild(projectTitle);
+                        projectDiv.appendChild(projectDescription);
+                        projectDiv.appendChild(projectLink);
+
+                        projectsList.appendChild(projectDiv);
+                    })
+                    .catch(error => {
+                        console.error(`Error fetching README.md for ${project.name}:`, error);
+                    });
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching GitHub projects:', error);
+            const errorDiv = document.createElement('div');
+            errorDiv.textContent = 'Failed to fetch GitHub projects. Please try again later.';
+            projectsList.appendChild(errorDiv);
+        });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var header = document.querySelector('.header');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 0) {
+            header.classList.add('small-header');
+        } else {
+            header.classList.remove('small-header');
+        }
     });
-}
-
-// Usage example: Replace 'milind2thakur' with the GitHub username you want to fetch repositories from
-const username = 'milind2thakur';
-fetchRepositories(username)
-    .then(repositories => {
-        displayRepositories(repositories);
-    })
-    .catch(error => {
-        console.error('Error fetching repositories:', error);
-    });
+});

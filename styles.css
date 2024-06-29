@@ -74,12 +74,11 @@ footer {
     background-color: #24292e; /* GitHub footer background color */
     color: white; /* White text */
     text-align: center;
-    padding: 32px 0; /* Increased padding top and bottom */
+    padding: 16px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
-
 
 .project {
     padding: 16px;
@@ -113,10 +112,10 @@ footer {
 
 /* Styles for sticky header on scroll */
 .header {
-    transition: padding 0.3s, background-color 0.3s;
+    transition: padding 0.3s; background-color: #000000;
 }
 
 .small-header {
     padding: 10px 0;
-    background-color: #333;
+    ;
 }
