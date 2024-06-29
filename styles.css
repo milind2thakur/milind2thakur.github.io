@@ -12,6 +12,10 @@ header {
     text-align: center;
 }
 
+#contact {
+    margin: 10px 0;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -40,4 +44,18 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.experience {
+    margin-bottom: 20px;
+}
+
+.experience h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.experience p {
+    margin: 0 0 10px;
+    padding: 0;
 }
