@@ -25,12 +25,31 @@ header {
 }
 
 main {
-    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
     margin: 20px auto;
-    background-color: #fff;
+}
+
+.info-sections {
+    flex-basis: 48%; /* Adjust as needed for spacing */
+}
+
+.info-card {
     padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#projects {
+    /* Flex-basis and styling for Projects section */
+}
+
+#experience {
+    /* Flex-basis and styling for Work Experience section */
 }
 
 section {
@@ -55,4 +74,93 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+#copyright {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    font-size: 0.8em;
+}
+
+
+.project {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.project h3 {
+    margin-bottom: 5px;
+}
+
+.project p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.project a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+
+.project {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.project h3 {
+    margin-bottom: 5px;
+}
+
+.project p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.project a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.project img {
+    max-width: 100%; /* Ensures images fit within their container */
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+
+.project {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.project h3 {
+    margin-bottom: 5px;
+}
+
+.project p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.project a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.project img {
+    max-width: 100%; /* Ensures images fit within their container */
+    border-radius: 8px; /* Rounded corners for images */
 }
