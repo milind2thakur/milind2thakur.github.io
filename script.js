@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projectsList = document.getElementById('projects-list');
 
+    // Fetch GitHub repositories and display them dynamically
     fetch('https://api.github.com/users/milind2thakur/repos')
         .then(response => response.json())
         .then(data => {
@@ -53,10 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             errorDiv.textContent = 'Failed to fetch GitHub projects. Please try again later.';
             projectsList.appendChild(errorDiv);
         });
-});
 
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Add scroll effect to header
     var header = document.querySelector('.header');
 
     window.addEventListener('scroll', function() {
