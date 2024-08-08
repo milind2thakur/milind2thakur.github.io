@@ -1,3 +1,4 @@
 ﻿# milind2thakur.github.io
 
-![portfolio](https://github.com/milind2thakur/milind2thakur.github.io/assets/23084109/a84dafc3-2259-4fc0-9cac-4ea1cf2667b1)
+
+![Screenshot (13)](https://github.com/user-attachments/assets/f0990a21-40bf-43bd-9ea1-eb3c64fbb27e)
